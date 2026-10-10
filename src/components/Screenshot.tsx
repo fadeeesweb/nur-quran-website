@@ -1,4 +1,5 @@
 import type { AppScreenshot } from "@/config/site";
+import { withBasePath } from "@/config/site";
 import { screenshotExists } from "@/lib/screenshots";
 import { Logo } from "./Logo";
 import styles from "./Screenshot.module.css";
@@ -22,7 +23,7 @@ export function Screenshot({ shot, frame = "flat", eager = false }: Props) {
   if (exists) {
     return (
       <img
-        src={`/${shot.file}`}
+        src={withBasePath(`/${shot.file}`)}
         alt={shot.alt}
         className={styles.image}
         loading={eager ? "eager" : "lazy"}

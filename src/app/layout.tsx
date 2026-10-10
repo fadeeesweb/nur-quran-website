@@ -1,14 +1,14 @@
 import type { Metadata, Viewport } from "next";
 import "@/styles/fonts.css";
 import "@/styles/globals.css";
-import { APP_DESCRIPTION, APP_NAME, SITE_KEYWORDS, SITE_TITLE, SITE_TITLE_TEMPLATE, SITE_URL } from "@/config/site";
+import { APP_DESCRIPTION, APP_NAME, BASE_PATH, SITE_KEYWORDS, SITE_TITLE, SITE_TITLE_TEMPLATE, SITE_URL } from "@/config/site";
 import { Navbar } from "@/components/Navbar";
 import { SiteFooter } from "@/components/SiteFooter";
 import { CookieConsent } from "@/components/CookieConsent";
 import { ScrollReveal } from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+  metadataBase: new URL(SITE_URL + BASE_PATH),
   title: {
     default: SITE_TITLE,
     template: SITE_TITLE_TEMPLATE,

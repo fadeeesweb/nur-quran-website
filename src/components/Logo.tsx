@@ -1,3 +1,4 @@
+import { withBasePath } from "@/config/site";
 import styles from "./Logo.module.css";
 
 type LogoProps = {
@@ -28,7 +29,7 @@ export function Logo({
       style={{ gap: withName ? Math.max(9, Math.round(size * 0.3)) : 0 }}
     >
       <img
-        src="/logo/logo.png"
+        src={withBasePath("/logo/logo.png")}
         alt={alt}
         width={size}
         height={size}

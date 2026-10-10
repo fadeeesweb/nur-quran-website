@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 import type { AppScreenshot } from "@/config/site";
-import { APP_SCREENSHOTS } from "@/config/site";
+import { APP_SCREENSHOTS, withBasePath } from "@/config/site";
 import { Screenshot } from "./Screenshot";
 import styles from "./AppPreview.module.css";
 
@@ -43,7 +43,7 @@ export function AppPreview() {
                   <Screenshot shot={shot} frame="phone" eager={index === 1} />
                 </div>
                 <img
-                  src="/app/iphone-frame.png"
+                  src={withBasePath("/app/iphone-frame.png")}
                   alt=""
                   aria-hidden="true"
                   className={styles.frameImg}

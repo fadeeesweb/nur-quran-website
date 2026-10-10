@@ -12,7 +12,7 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
-const FONT_DIR = path.join(ROOT, "public", "fonts");
+const FONT_DIR = path.join(ROOT, "src", "styles", "fonts");
 const CSS_OUT = path.join(ROOT, "src", "styles", "fonts.css");
 
 const UA =
@@ -80,7 +80,7 @@ async function main() {
         `  font-style: ${style};`,
         `  font-weight: ${weight};`,
         "  font-display: swap;",
-        `  src: url('/fonts/${name}') format('woff2');`,
+        `  src: url('./fonts/${name}') format('woff2');`,
         range ? `  unicode-range: ${range};` : "",
         "}",
       ]
