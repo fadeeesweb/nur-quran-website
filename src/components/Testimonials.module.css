@@ -1,0 +1,44 @@
+.section {
+  background-color: var(--paper);
+}
+
+.header {
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.item {
+  border-top: 1px solid var(--line-strong);
+  padding-top: 1.5rem;
+}
+
+.quote {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--ink-800);
+  margin: 0;
+}
+
+.author {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.name {
+  font-weight: 600;
+  font-size: 0.97rem;
+  color: var(--ink);
+}
+
+.role {
+  font-size: 0.88rem;
+  color: var(--ink-400);
+}

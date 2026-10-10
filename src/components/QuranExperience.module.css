@@ -1,0 +1,112 @@
+.section {
+  background-color: var(--ivory);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  align-items: start;
+  gap: clamp(2.25rem, 5vw, 4.5rem);
+}
+
+.copy {
+  position: sticky;
+  top: calc(var(--nav-height) + 2.5rem);
+}
+
+.points {
+  display: grid;
+  gap: 0;
+  margin-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.points li {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 1rem;
+  color: var(--ink-800);
+}
+
+.marker {
+  flex: none;
+  width: 7px;
+  height: 7px;
+  background-color: var(--gold-500);
+  transform: rotate(45deg);
+}
+
+.note {
+  margin-top: 1.6rem;
+  font-size: 0.94rem;
+  font-style: italic;
+  color: var(--ink-400);
+  max-width: 46ch;
+}
+
+.sample {
+  min-width: 0;
+}
+
+/* ------------------------------- Facts strip ----------------------------- */
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: clamp(3rem, 6vw, 4.75rem);
+  border-top: 1px solid var(--line-strong);
+}
+
+.fact {
+  padding: clamp(1.4rem, 3vw, 2rem) clamp(0.75rem, 2vw, 1.5rem);
+  text-align: center;
+}
+
+.fact + .fact {
+  border-left: 1px solid var(--line);
+}
+
+.factValue {
+  font-family: var(--font-serif);
+  font-size: clamp(1.9rem, 3.4vw, 2.7rem);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--green-700);
+  margin: 0.55rem 0 0;
+}
+
+.factLabel {
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+@media (max-width: 960px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .copy {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .fact:nth-child(3),
+  .fact:nth-child(4) {
+    border-top: 1px solid var(--line);
+  }
+
+  .fact:nth-child(odd) {
+    border-left: 0;
+  }
+}

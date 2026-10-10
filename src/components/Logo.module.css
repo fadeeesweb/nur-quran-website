@@ -1,0 +1,19 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+}
+
+.mark {
+  display: block;
+  border-radius: 22.5%;
+}
+
+.name {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: -0.012em;
+  line-height: 1;
+  color: inherit;
+  padding-bottom: 0.06em;
+}

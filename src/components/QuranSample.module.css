@@ -1,0 +1,262 @@
+.panel {
+  position: relative;
+  background-color: var(--paper);
+  border: 1px solid var(--line-gold);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+.panel::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(201, 168, 92, 0.28);
+  border-radius: 11px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ------------------------------- Toolbar --------------------------------- */
+
+.toolbar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.7rem 1rem;
+  padding: 0.8rem clamp(1rem, 2.5vw, 1.5rem);
+  background-color: rgba(244, 241, 232, 0.75);
+  border-bottom: 1px solid var(--line);
+}
+
+.sizeGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.toolButton {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  color: var(--ink-800);
+  background-color: var(--paper);
+  transition: border-color 0.18s ease, color 0.18s ease, background-color 0.18s ease;
+}
+
+.toolButton:hover:not(:disabled) {
+  border-color: var(--green-600);
+  color: var(--green-700);
+  background-color: var(--green-50);
+}
+
+.toolButton:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+}
+
+.toolLabel {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.toolDivider {
+  width: 1px;
+  height: 24px;
+  background-color: var(--line);
+}
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.87rem;
+  font-weight: 600;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  color: var(--ink-600);
+  background-color: var(--paper);
+  transition: border-color 0.18s ease, color 0.18s ease, background-color 0.18s ease;
+}
+
+.toggle:hover {
+  border-color: var(--green-600);
+  color: var(--green-700);
+}
+
+.toggleOn {
+  border-color: var(--green-600);
+  background-color: var(--green-50);
+  color: var(--green-700);
+}
+
+/* --------------------------------- Sheet --------------------------------- */
+
+.sheet {
+  position: relative;
+  z-index: 2;
+  padding: clamp(1.5rem, 3vw, 2.4rem) clamp(1.2rem, 3vw, 2.25rem);
+}
+
+.surahHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  text-align: center;
+  margin-bottom: 1.9rem;
+}
+
+.rule {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(201, 168, 92, 0.55);
+}
+
+.rule::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background-color: var(--paper);
+  border: 1px solid var(--gold-500);
+}
+
+.surahArabic {
+  font-family: var(--font-quran);
+  font-size: clamp(1.85rem, 4vw, 2.3rem);
+  line-height: 1.5;
+  color: var(--green-800);
+}
+
+.surahMeta {
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+/* --------------------------------- Audio --------------------------------- */
+
+.playRow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 0.55rem;
+}
+
+.playButton {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding-left: 2px;
+  border-radius: 50%;
+  background-color: var(--gold-500);
+  color: var(--green-900);
+  box-shadow: 0 12px 26px -14px rgba(201, 168, 92, 0.85);
+  transition: transform 0.18s ease, background-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.playButton:hover:not(:disabled) {
+  transform: translateY(-1px);
+  background-color: var(--gold-400);
+  box-shadow: 0 16px 30px -14px rgba(201, 168, 92, 0.95);
+}
+
+.playButton:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.playHint {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.ayahs {
+  display: grid;
+  gap: 1.6rem;
+}
+
+.ayah {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.arabic {
+  font-family: var(--font-quran);
+  direction: rtl;
+  text-align: right;
+  line-height: 2.05;
+  color: var(--ink);
+}
+
+.arabicText {
+  unicode-bidi: isolate;
+}
+
+.ayahNumber {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.85em;
+  height: 1.85em;
+  margin-inline-start: 0.5em;
+  border: 1px solid var(--gold-500);
+  border-radius: 50%;
+  background-color: rgba(201, 168, 92, 0.1);
+  font-family: var(--font-sans);
+  font-size: 0.48em;
+  font-weight: 600;
+  color: var(--gold-700);
+  vertical-align: middle;
+}
+
+.translation {
+  font-size: 0.99rem;
+  line-height: 1.72;
+  color: var(--ink-600);
+  border-left: 2px solid rgba(201, 168, 92, 0.75);
+  padding-left: 0.95rem;
+}
+
+.attribution {
+  margin-top: 1.9rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--ink-400);
+}
+
+@media (max-width: 560px) {
+  .toolDivider {
+    display: none;
+  }
+
+  .toolbar {
+    gap: 0.6rem;
+  }
+}

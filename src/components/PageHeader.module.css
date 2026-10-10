@@ -1,0 +1,24 @@
+.header {
+  max-width: 60ch;
+}
+
+.title {
+  font-size: clamp(2.1rem, 1.5rem + 2.6vw, 3.15rem);
+  line-height: 1.1;
+}
+
+.lede {
+  margin-top: 1.2rem;
+  font-size: clamp(1.02rem, 1rem + 0.3vw, 1.13rem);
+  line-height: 1.7;
+  color: var(--ink-600);
+}
+
+.updated {
+  margin-top: 1.35rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}

@@ -1,0 +1,24 @@
+{
+  "name": "nur-quran-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Official landing website for the Nur Quran & Islamic Companion mobile app.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build && node scripts/fix-segment-paths.mjs",
+    "typecheck": "tsc --noEmit",
+    "preview": "node scripts/serve.cjs"
+  },
+  "dependencies": {
+    "lucide-react": "^1.52.0",
+    "next": "^16.4.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.9.0"
+  }
+}

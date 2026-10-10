@@ -1,0 +1,10 @@
+.band {
+  background-color: var(--cream);
+  border-bottom: 1px solid var(--line);
+  padding-block: clamp(3rem, 5vw, 4.75rem);
+}
+
+.body {
+  background-color: var(--ivory);
+  padding-block: clamp(3rem, 5vw, 5rem);
+}

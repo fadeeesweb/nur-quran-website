@@ -1,0 +1,21 @@
+.section {
+  background-color: var(--ivory);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  font-size: clamp(1.9rem, 1.4rem + 2.2vw, 2.8rem);
+  max-width: 18ch;
+}
+
+.text {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  color: var(--ink-600);
+}
