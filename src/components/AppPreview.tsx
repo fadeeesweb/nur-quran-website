@@ -43,7 +43,7 @@ export function AppPreview() {
                   <Screenshot shot={shot} frame="phone" eager={index === 1} />
                 </div>
                 <img
-                  src={withBasePath("/app/iphone-frame.png")}
+                  src={withBasePath("/app/iphone-frame.webp")}
                   alt=""
                   aria-hidden="true"
                   className={styles.frameImg}

@@ -159,37 +159,37 @@ export type AppScreenshot = {
 export const APP_SCREENSHOTS: AppScreenshot[] = [
   {
     key: "home",
-    file: "app/screenshots/home.png",
+    file: "app/screenshots/home.webp",
     label: "Home",
     alt: "Nur app home dashboard screenshot",
   },
   {
     key: "quran",
-    file: "app/screenshots/quran.png",
+    file: "app/screenshots/quran.webp",
     label: "Quran reading",
     alt: "Nur app Quran reading screen screenshot",
   },
   {
     key: "audio",
-    file: "app/screenshots/audio.png",
+    file: "app/screenshots/audio.webp",
     label: "Audio",
     alt: "Nur app recitation audio player screenshot",
   },
   {
     key: "tafsir",
-    file: "app/screenshots/tafsir.png",
+    file: "app/screenshots/tafsir.webp",
     label: "Tafsir",
     alt: "Nur app tafsir screen screenshot",
   },
   {
     key: "prayer",
-    file: "app/screenshots/prayer.png",
+    file: "app/screenshots/prayer.webp",
     label: "Prayer times",
     alt: "Nur app prayer times screen screenshot",
   },
   {
     key: "tools",
-    file: "app/screenshots/tools.png",
+    file: "app/screenshots/tools.webp",
     label: "Islamic tools",
     alt: "Nur app Islamic tools screen screenshot",
   },

@@ -29,7 +29,7 @@ export function Logo({
       style={{ gap: withName ? Math.max(9, Math.round(size * 0.3)) : 0 }}
     >
       <img
-        src={withBasePath("/logo/logo.png")}
+        src={withBasePath("/logo/logo.webp")}
         alt={alt}
         width={size}
         height={size}

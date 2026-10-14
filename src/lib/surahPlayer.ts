@@ -50,7 +50,13 @@ class SurahPlayer {
   private ensure(): HTMLAudioElement {
     if (this.audio) return this.audio;
     const audio = new Audio();
-    audio.preload = "auto";
+    audio.preload = "metadata";
+    // Not in the TS DOM lib for <audio>, but honored by mobile browsers.
+    audio.setAttribute("playsinline", "");
+    // Attach to the DOM — some Android WebViews refuse to play detached audio elements.
+    audio.style.display = "none";
+    audio.setAttribute("aria-hidden", "true");
+    document.body.appendChild(audio);
     const syncTime = () => {
       const duration = isFinite(audio.duration) ? audio.duration : 0;
       this.set({
@@ -79,8 +85,9 @@ class SurahPlayer {
   private load() {
     const audio = this.ensure();
     if (!audio.src) {
+      // Set src only — play() triggers loading. Calling load() immediately
+      // before play() causes AbortError on iOS Safari.
       audio.src = SAMPLE_AUDIO.url;
-      audio.load();
     }
   }
 
@@ -88,16 +95,28 @@ class SurahPlayer {
     const audio = this.ensure();
     this.load();
     this.set({ failed: false });
-    audio
-      .play()
-      .then(() => this.set({ playing: true }))
-      .catch((error: unknown) => {
-        if (error instanceof DOMException && error.name === "NotAllowedError") {
-          this.set({ playing: false });
-          return;
-        }
-        this.set({ playing: false, failed: true });
-      });
+    const tryPlay = (isRetry: boolean) => {
+      const promise = audio.play();
+      if (promise === undefined) {
+        this.set({ playing: true });
+        return;
+      }
+      promise
+        .then(() => this.set({ playing: true }))
+        .catch((error: unknown) => {
+          const name = error instanceof DOMException ? error.name : "";
+          if (name === "AbortError" && !isRetry) {
+            tryPlay(true);
+            return;
+          }
+          if (name === "NotAllowedError") {
+            this.set({ playing: false });
+            return;
+          }
+          this.set({ playing: false, failed: true });
+        });
+    };
+    tryPlay(false);
   }
 
   pause() {
